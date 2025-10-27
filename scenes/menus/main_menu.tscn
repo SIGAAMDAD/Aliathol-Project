@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0p343bcsy0ri"]
+[gd_scene load_steps=6 format=3 uid="uid://dnooe0hecrfu0"]
 
-[ext_resource type="Script" uid="uid://ypsv01tau7p0" path="res://scripts/Menus/MainMenu.cs" id="1_xqga4"]
+[ext_resource type="Script" uid="uid://ypsv01tau7p0" path="res://scripts/Menus/MainMenu.cs" id="1_8ln24"]
+[ext_resource type="Script" uid="uid://m8f4ec6jytad" path="res://scripts/Menus/SelectionNodes/Button.cs" id="3_2o76q"]
+[ext_resource type="Texture2D" uid="uid://bbuai02ehpgs7" path="res://textures/ui/main_menu_ui_button.png" id="4_wu84c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nyfqn"]
+texture = ExtResource("4_wu84c")
+texture_margin_left = 6.0
+texture_margin_right = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6dvpa"]
+texture = ExtResource("4_wu84c")
+modulate_color = Color(0, 0, 1, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,4 +20,59 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xqga4")
+script = ExtResource("1_8ln24")
+metadata/_edit_use_anchors_ = true
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_top = 0.23600002
+anchor_right = 0.64900005
+anchor_bottom = 0.76400006
+offset_left = 24.192017
+offset_top = 107.65598
+offset_right = -24.191986
+offset_bottom = -107.65604
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuTitle" type="Label" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 172)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "MAIN MENU"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="PlayGameButton" type="Button" parent="MainContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
+text = "START GAME"
+script = ExtResource("3_2o76q")
+
+[node name="SettingsMenuButton" type="Button" parent="MainContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
+text = "SETTINGS"
+script = ExtResource("3_2o76q")
+
+[node name="QuitGameButton" type="Button" parent="MainContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
+text = "QUIT GAME"
+script = ExtResource("3_2o76q")

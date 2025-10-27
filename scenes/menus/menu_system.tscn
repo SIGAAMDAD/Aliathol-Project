@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8bybp4kgtrlx"]
+
+[ext_resource type="PackedScene" uid="uid://bgtgr2217t66w" path="res://scenes/menus/save_slots_menu.tscn" id="1_nctam"]
+[ext_resource type="Script" uid="uid://bl6r6nw5uxfuw" path="res://scripts/Menus/MenuSystem.cs" id="1_pb002"]
+[ext_resource type="Texture2D" uid="uid://b2xs7qw4olt2x" path="res://textures/ui/menu_background.png" id="2_6qhf6"]
+[ext_resource type="PackedScene" uid="uid://dnooe0hecrfu0" path="res://scenes/menus/main_menu.tscn" id="2_pb002"]
+
+[node name="MenuSystem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pb002")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6qhf6")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SaveSlotsMenu" parent="." instance=ExtResource("1_nctam")]
+layout_mode = 1
+
+[node name="MainMenu" parent="." instance=ExtResource("2_pb002")]
+visible = false
+layout_mode = 1

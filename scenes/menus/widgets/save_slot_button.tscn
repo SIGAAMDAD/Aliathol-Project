@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi240clocu10d"]
+
+[ext_resource type="Script" uid="uid://c82o01v4yeetl" path="res://scripts/Menus/SaveSlotButton.cs" id="1_vgq78"]
+[ext_resource type="Texture2D" uid="uid://bbuai02ehpgs7" path="res://textures/ui/main_menu_ui_button.png" id="2_6dvpa"]
+[ext_resource type="Script" uid="uid://m8f4ec6jytad" path="res://scripts/Menus/SelectionNodes/Button.cs" id="3_ttyr1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nyfqn"]
+texture = ExtResource("2_6dvpa")
+texture_margin_left = 6.0
+texture_margin_right = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6dvpa"]
+texture = ExtResource("2_6dvpa")
+modulate_color = Color(0, 0, 1, 1)
+
+[node name="SaveSlotButton" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_vgq78")
+
+[node name="SelectButton" type="Button" parent="."]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_nyfqn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6dvpa")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6dvpa")
+script = ExtResource("3_ttyr1")
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 2
+text = "ERASE"

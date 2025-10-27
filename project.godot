@@ -11,9 +11,28 @@ config_version=5
 [application]
 
 config/name="Aliathol-Project"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://b8bybp4kgtrlx"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Console="*res://scripts/ConsoleSystem/Console.cs"
+GameEventBus="*res://scripts/EventSystem/GameEventBus.cs"
+SaveManager="*res://scripts/SaveSystem/SaveManager.cs"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [dotnet]
 
 project/assembly_name="Aliathol-Project"
+
+[gui]
+
+theme/custom_font="uid://cdfswxvqofgt8"
