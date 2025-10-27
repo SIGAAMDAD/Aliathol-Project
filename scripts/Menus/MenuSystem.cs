@@ -1,5 +1,6 @@
 using EventSystem;
 using Godot;
+using GodotPlugins.Game;
 using System;
 
 namespace Menus {
@@ -15,6 +16,7 @@ namespace Menus {
 	/// </summary>
 
 	public sealed partial class MenuSystem : Control {
+		private TitleMenu TitleMenu;
 		private MainMenu MainMenu;
 		private SaveSlotsMenu SaveSlotsMenu;
 
@@ -36,11 +38,18 @@ namespace Menus {
 		private void OnMenuStateChanged( in IGameEvent eventData, in IEventArgs args ) {
 			if ( args is BaseMenu.MenuStateChangedEventData stateChanged ) {
 				switch ( stateChanged.State ) {
+					case State.Title:
+						EnableMenu( TitleMenu );
+						DisableMenu( SaveSlotsMenu );
+						DisableMenu( MainMenu );
+						break;
 					case State.Main:
+						DisableMenu( TitleMenu );
 						DisableMenu( SaveSlotsMenu );
 						EnableMenu( MainMenu );
 						break;
 					case State.SaveSlots:
+						DisableMenu( TitleMenu );
 						EnableMenu( SaveSlotsMenu );
 						DisableMenu( MainMenu );
 						break;
@@ -60,6 +69,9 @@ namespace Menus {
 		/// </summary>
 		public override void _Ready() {
 			base._Ready();
+
+			TitleMenu = GetNode<TitleMenu>( "TitleScreen" );
+			TitleMenu.SetMenuState.Subscribe( this, OnMenuStateChanged );
 
 			MainMenu = GetNode<MainMenu>( "MainMenu" );
 			MainMenu.SetMenuState.Subscribe( this, OnMenuStateChanged );
