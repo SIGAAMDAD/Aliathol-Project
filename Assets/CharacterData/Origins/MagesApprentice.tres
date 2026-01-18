@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://jk8nt7u40faw"]
+
+[ext_resource type="Texture2D" uid="uid://cmpm868iivsdu" path="res://Assets/Textures/ui/Portraits/Origins/MagesApprentice.png" id="1_5frjk"]
+[ext_resource type="Script" uid="uid://pm7vdrc7kems" path="res://Source/Game/Infrastructure/Character/GodotResource/OriginResource.cs" id="1_esemw"]
+
+[resource]
+script = ExtResource("1_esemw")
+Name = &"MAGES_APPRENTICE_NAME"
+Description = &"MAGES_APPRENTICE_DESCRIPTION"
+Mugshot = ExtResource("1_5frjk")

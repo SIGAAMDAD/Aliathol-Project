@@ -1,0 +1,17 @@
+{a2d0fb9b-654b-481c-9acc-d7b88fe7c60b} bank:/Master
+{3acddb4f-1430-045e-1c85-5d467e14c093} bank:/Master.strings
+{cea57678-c05a-45f3-be47-2dfeee7ce536} bank:/Music
+{cff83db9-0409-4bc3-81fd-daabecbf3718} bank:/SFX
+{4931d0f9-8285-4c1c-9cef-bd5ec08dab53} bank:/UserInterface
+{f74246d7-60c6-495f-ad9c-a099bef14364} bus:/
+{211ba141-6f20-4c43-b43e-65cf54ac58a6} bus:/Music
+{e7f3028c-ea4e-48ca-8fbc-01962bcd81e8} bus:/Reverb
+{1a7b11c7-fb58-4575-b99c-77628efe6f5d} bus:/SoundEffects
+{4da15ed0-63ef-42b1-bfdb-d8190d8e912c} bus:/SoundEffects/Environment
+{08340847-5532-4b62-aba9-2e3b5c6c6fb2} bus:/SoundEffects/UserInterface
+{93c03483-6b8d-415c-bb0b-18cb4a3e72d7} event:/Music/UserInterface/MainMenuTheme
+{fd40dbd7-6e4f-4a14-b5fc-5b53b47bee7f} event:/UI/ButtonFocused
+{bc306f2a-04be-4bea-86c0-c9dc942f47d7} event:/UI/ButtonPressed
+{bd11d9aa-6a6e-40cb-8f5c-8ff20b72b0b7} event:/UI/begin_game
+{30ca8b22-08f2-4474-83ca-e99cf88f4fef} event:/UI/pause_game
+{0d5d13e8-3a07-4550-ac24-5da79fd05f80} event:/UI/resume_game

@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d0x6m0kvy2xdp"]
+
+[ext_resource type="Texture2D" uid="uid://34t24sh0lbnu" path="res://textures/hud/ink_streak.dds" id="1_3ipdm"]
+
+[resource]
+texture = ExtResource("1_3ipdm")

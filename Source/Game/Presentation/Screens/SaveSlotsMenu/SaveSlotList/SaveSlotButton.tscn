@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://co8p2tb436j1y"]
+
+[ext_resource type="Script" uid="uid://14i6uejltt2u" path="res://Source/Game/Presentation/Screens/SaveSlotsMenu/SaveSlotButton/SaveSlotButton.cs" id="1_4nt5w"]
+
+[node name="SaveSlotButton" type="Button" unique_id=1016865313]
+anchors_preset = -1
+anchor_right = 0.012
+anchor_bottom = 0.017
+offset_right = -7.6800003
+offset_bottom = -8.160001
+size_flags_horizontal = 3
+script = ExtResource("1_4nt5w")
+metadata/_edit_use_anchors_ = true

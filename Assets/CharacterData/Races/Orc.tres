@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://bkscu7r6vb5g2"]
+
+[ext_resource type="Texture2D" uid="uid://bs0olr5rc0cp8" path="res://Assets/Textures/ui/Portraits/Races/Orc.png" id="1_hp3o3"]
+[ext_resource type="Script" uid="uid://chqm07a6uwwo7" path="res://Source/Game/Infrastructure/Character/GodotResource/RaceResource.cs" id="1_jntj7"]
+
+[resource]
+script = ExtResource("1_jntj7")
+Name = &"ORC_NAME"
+Description = &"ORC_DESCRIPTION"
+Mugshot = ExtResource("1_hp3o3")

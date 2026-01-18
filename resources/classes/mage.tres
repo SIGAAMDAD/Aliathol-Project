@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bwjl6kqona1bd"]
+
+[ext_resource type="Script" uid="uid://b7yan5twwm4bx" path="res://scripts/Application/Gameplay/Character/Class.cs" id="1_d0wnf"]
+
+[resource]
+script = ExtResource("1_d0wnf")
+Name = "Mage"
+BaseKit = null

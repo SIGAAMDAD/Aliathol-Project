@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://cu0367y8t8fal"]
+
+[ext_resource type="Texture2D" uid="uid://paw4m618d5h1" path="res://Assets/Textures/ui/Portraits/Races/WoodElf.png" id="1_3mut8"]
+[ext_resource type="Script" uid="uid://chqm07a6uwwo7" path="res://Source/Game/Infrastructure/Character/GodotResource/RaceResource.cs" id="1_m44vq"]
+
+[resource]
+script = ExtResource("1_m44vq")
+Name = &"WOOD_ELF_NAME"
+Description = &"WOOD_ELF_DESCRIPTION"
+Mugshot = ExtResource("1_3mut8")

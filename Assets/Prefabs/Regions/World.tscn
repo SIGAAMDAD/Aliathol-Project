@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://shyuerjr3sel"]
+
+[ext_resource type="PackedScene" uid="uid://otpxh0f38wac" path="res://Assets/Prefabs/Regions/Ezaelar.tscn" id="1_8vvib"]
+[ext_resource type="Script" uid="uid://c4qnmaodsgpx" path="res://Assets/Prefabs/Regions/World.cs" id="1_jf6el"]
+[ext_resource type="PackedScene" uid="uid://cirvkfu4rutp3" path="res://Assets/Prefabs/Player/Player.tscn" id="2_tsmk7"]
+[ext_resource type="PackedScene" uid="uid://cqrfhexbsn2fq" path="res://Source/Game/Presentation/UserInterface/HeadsUpDisplay/HeadsUpDisplay.tscn" id="4_371vn"]
+[ext_resource type="PackedScene" uid="uid://di2x6wjleduhp" path="res://Source/Game/Presentation/Screens/PauseMenu/PauseMenu.tscn" id="5_mbhlf"]
+
+[node name="World" type="Node" unique_id=455275314 node_paths=PackedStringArray("_startPosition")]
+script = ExtResource("1_jf6el")
+_startPosition = NodePath("Ezaelar/PlayerStartPosition")
+_playerScene = ExtResource("2_tsmk7")
+
+[node name="Ezaelar" parent="." unique_id=297601283 instance=ExtResource("1_8vvib")]
+
+[node name="PlayerStartPosition" type="Node2D" parent="Ezaelar" unique_id=1771075106]
+
+[node name="HeadsUpDisplay" parent="." unique_id=725041088 instance=ExtResource("4_371vn")]
+
+[node name="PauseMenu" parent="." unique_id=468079399 instance=ExtResource("5_mbhlf")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d25a521t8gr40"]
+
+[ext_resource type="Script" uid="uid://b4ymy5lecte3i" path="res://Assets/Prefabs/QuestTrigger/QuestAreaTrigger/QuestAreaTrigger.cs" id="1_la0ry"]
+
+[node name="QuestAreaTrigger" type="Node2D" unique_id=601816683]
+script = ExtResource("1_la0ry")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=787051110]

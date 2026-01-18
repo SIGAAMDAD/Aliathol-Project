@@ -1,0 +1,31 @@
+key,en
+FIGHTER_NAME,Fighter
+FIGHTER_DESCRIPTION,Fighters are sturdy and hearty warriors. However that strength comes at a cost of mobility and nimbleness as their armor is really damn heavy. FIghters specialize in one-on-one combat and have the biggest health pools.
+ROGUE_NAME,Rogue
+ROGUE_DESCRIPTION,"A notorious litte shit that sneaks around engaging in various forms of mischief. However, they are usually quite weak in one-on-one combat"
+MAGE_NAME,Mage
+MAGE_DESCRIPTION,"Mages are uncommon due to Mana Capable creatures being extremely rare, and the training required to produce efficient and knowlegeable mage is even harder to come by. Most mages, that is the ones who aren't mana capable, utilize a magical object (such as runes) to channel mana through."
+HEXER_NAME,Hexer
+HEXER_DESCRIPTION,"Trained from birth by the Grand Galakan Church, Hexers were once chivalrous paladins serving a ""Greater Purpose"" but now roam the countrysides taking contracts to make ends meet."
+ROBIN_HOOD_NAME,Robin Hood
+ROBIN_HOOD_DESCRIPTION,"Stealing from the rich to give to the poor! You've spent your entire life as an outlaw feeding those who need it more than those fat nobles sitting up in their ivory towers, so why stop now? You're a natural at getting into places you really shouldn't be."
+MERCENARY_NAME,Mercenary
+MERCENARY_DESCRIPTION,"Born and raised on the battlefields. Mercenaries are both gruff, spry, and eager for the next paycheck. You are naturally skilled with most melee weapons and have a nack for the best way of doing the dumbest things."
+MAGES_APPRENTICE_NAME,Mage's Apprentice
+MAGES_APPRENTICE_DESCRIPTION,"Mages are quite rare, and so are their pupils. Fresh from training and ready to make an impact, you are trained in the arts of magic and mana without the usage of runes."
+PRIEST_NAME,Priest
+PRIEST_DESCRIPTION,"Raised in the churches and religious sects of magicka, priests have learned to communicate with the gods in order to draw their power and source their mana without usage of extreme emotions. Priests are known for being righteous, if a little bit rigid, but seeking order and peace above all else... even if that means attaining it through force."
+ROYAL_GUARD_NAME,Royal Guard
+ROYAL_GUARD_DESCRIPTION,"Raised in high-born blood. A Royal Guard is known for their fierce loyality, incredible strength, but a self-destructive sense of honor that makes them reckless in longing for a ""honorable"" fight."
+HUMAN_NAME,Human
+HUMAN_DESCRIPTION,"Humans are the most common... humanoids... yeah that just about sums it up! These fuckers are literally everywhere. They loot, pillage, ****... hollup nope that's Orcs. Bottom line is: these weirdos are everywhere all the time."
+WOOD_ELF_NAME,Wood Elf
+WOOD_ELF_DESCRIPTION,"Living off the natural mana that collects in the elder trees of Morbarad, Wood Elves are the long-lost relatives of the High Elves. They have a special knack for climbing stuff, and are extremely picky berry eaters. Also they love to live in trees, so why do you think dwarves have axes?"
+HIGH_ELF_NAME,High Elf
+HIGH_ELF_DESCRIPTION,"High Elves hail from the lost Northern Kingdom of Tasilaar. Banished from the ancient dwarven citadels of the Khazahur mountains, the Eldarin as they are sometimes called, have made their lives frugal and their ways hidden. Also, beware, they have a certain kind of superiority complex. HIgh Elves are from a long lost age of gods and big fucking battles, and, are an extremely rare sight outside of the northmost regions of Aliathol."
+DWARF_NAME,Dwarf
+DWARF_DESCRIPTION,"Hearty and sturdy peoples, dwarves hail from both the North in the Khazahur and the South in the Iguteyr."
+MERFOLK_NAME,Merfolk
+MERFOLK_DESCRIPTION,"Hailing from the depths of the seas of Aliathol, Merfolk are an ancient mutation of humanity created by the great Sea Ancient Mursrag. Able to breath underwater, and heal naturally from the rain, merfolk are unique humanoids."
+ORC_NAME,Orc
+ORC_DESCRIPTION,"Born from the hills of Ghazkul-Thrak, Orcs are usually looked down upon by all other humanoids. They are strong and tall, and usually act before they talk."

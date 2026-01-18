@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://2knornihh5gw"]
+
+[ext_resource type="Script" uid="uid://pm7vdrc7kems" path="res://Source/Game/Infrastructure/Character/GodotResource/OriginResource.cs" id="1_1kmnh"]
+[ext_resource type="Texture2D" uid="uid://b6s6fggw6e4w8" path="res://Assets/Textures/ui/Portraits/Origins/RobinHood.png" id="1_bg2a4"]
+
+[resource]
+script = ExtResource("1_1kmnh")
+Name = &"ROBIN_HOOD_NAME"
+Description = &"ROBIN_HOOD_DESCRIPTION"
+Mugshot = ExtResource("1_bg2a4")

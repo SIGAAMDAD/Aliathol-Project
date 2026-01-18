@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://2sfi55yx3ju8"]
+
+[ext_resource type="Script" uid="uid://fw2w18ks17nh" path="res://Source/Game/Presentation/Screens/CharacterCreationMenu/MugshotList/MugshotList.cs" id="1_g0sj7"]
+
+[node name="MugshotList" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g0sj7")
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionList" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+focus_mode = 2
+
+[node name="InformationContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="InformationContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+horizontal_alignment = 1
+
+[node name="DataSeparator" type="HSeparator" parent="InformationContainer"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="InformationContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true

@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6einfkibvthk"]
+
+[ext_resource type="Script" uid="uid://blhim0bft77oe" path="res://scripts/Application/Menus/CharacterCreationMenu.cs" id="1_vtwt5"]
+[ext_resource type="PackedScene" uid="uid://bug6yjfs6grmc" path="res://scenes/menus/widgets/character_creation_list_option.tscn" id="2_cmtl3"]
+[ext_resource type="Texture2D" uid="uid://b2xs7qw4olt2x" path="res://textures/ui/menu_background.png" id="2_rrtvu"]
+
+[node name="CharacterCreationMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vtwt5")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AppearanceOptions" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/AppearanceOptions"]
+custom_minimum_size = Vector2(260, 172)
+layout_mode = 2
+texture = ExtResource("2_rrtvu")
+expand_mode = 3
+
+[node name="SkinToneList" parent="HBoxContainer/AppearanceOptions" instance=ExtResource("2_cmtl3")]
+layout_mode = 2
+Title = &"Skin Tone"
+
+[node name="CharacterOptions" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ClassList" parent="HBoxContainer/CharacterOptions" instance=ExtResource("2_cmtl3")]
+layout_mode = 2
+Title = &"Class"
+
+[node name="RaceList" parent="HBoxContainer/CharacterOptions" instance=ExtResource("2_cmtl3")]
+layout_mode = 2
+Title = &"Race"
+
+[node name="SubClassList" parent="HBoxContainer/CharacterOptions" instance=ExtResource("2_cmtl3")]
+layout_mode = 2
+Title = &"Sub Class"
+
+[node name="SubRaceList" parent="HBoxContainer/CharacterOptions" instance=ExtResource("2_cmtl3")]
+layout_mode = 2
+Title = &"Sub Race"

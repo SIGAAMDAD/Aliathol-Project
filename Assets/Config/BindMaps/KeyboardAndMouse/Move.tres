@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GUIDEAction" format=3 uid="uid://x67mwdkbcyul"]
+
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="1_yorsa"]
+
+[resource]
+script = ExtResource("1_yorsa")
+name = &"Move"
+action_value_type = 2
+is_remappable = true
+metadata/_custom_type_script = "uid://cluhc11vixkf1"

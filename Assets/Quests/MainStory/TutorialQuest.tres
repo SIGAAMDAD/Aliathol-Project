@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="QuestResource" format=3 uid="uid://dlq70xos7xdnc"]
+
+[ext_resource type="Script" uid="uid://d4gmb2nftapl5" path="res://addons/questify/scripts/model/quest_edge.gd" id="1_rl0a5"]
+[ext_resource type="Script" uid="uid://b37aev4imc074" path="res://addons/questify/scripts/model/quest_node.gd" id="2_cpme7"]
+[ext_resource type="Script" uid="uid://cyotfkardp6i" path="res://addons/questify/scripts/model/quest_condition.gd" id="2_rtl85"]
+[ext_resource type="Script" uid="uid://c23wdreelkkg4" path="res://addons/questify/scripts/model/quest_objective.gd" id="3_2gp82"]
+[ext_resource type="Script" uid="uid://bhqxygnm6kw4n" path="res://addons/questify/scripts/model/quest_resource.gd" id="3_8de0s"]
+[ext_resource type="Script" uid="uid://dtbofow3tdngk" path="res://addons/questify/scripts/model/quest_start.gd" id="4_bxqki"]
+[ext_resource type="Script" uid="uid://650crvoj707i" path="res://addons/questify/scripts/model/quest_end.gd" id="5_c2eps"]
+
+[sub_resource type="Resource" id="Resource_srtr7"]
+script = ExtResource("2_rtl85")
+type = "CONDITION_PLAYER_STATE"
+key = "IsInArea_TutorialTown"
+id = "sc8bsB55YQ"
+graph_editor_position = Vector2(240, 660)
+graph_editor_size = Vector2(376.99994, 313.00006)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_aa52a"]
+script = ExtResource("3_2gp82")
+description = "Follow the path to the nearest town."
+id = "f2qVn6EPcK"
+graph_editor_position = Vector2(720, 440)
+graph_editor_size = Vector2(467.9994, 547)
+
+[sub_resource type="Resource" id="Resource_0esrx"]
+script = ExtResource("1_rl0a5")
+from = SubResource("Resource_srtr7")
+to = SubResource("Resource_aa52a")
+edge_type = 1
+
+[sub_resource type="Resource" id="Resource_d27ys"]
+script = ExtResource("4_bxqki")
+name = "Find Your Way"
+description = "You've woken up... but your memory has been wiped. Yet you remember you've come to the lands of Ezaelar for some reason."
+id = "eNJf2h0Dlx"
+graph_editor_position = Vector2(-113.073235, 445.3896)
+graph_editor_size = Vector2(279.9999, 524)
+
+[sub_resource type="Resource" id="Resource_45ttq"]
+script = ExtResource("1_rl0a5")
+from = SubResource("Resource_d27ys")
+to = SubResource("Resource_aa52a")
+
+[sub_resource type="Resource" id="Resource_xqlo7"]
+script = ExtResource("3_2gp82")
+description = "Find Jose, The Legendary Paladin"
+id = "vS9mWjn0Ui"
+graph_editor_position = Vector2(1780, 440)
+graph_editor_size = Vector2(467.9995, 547)
+
+[sub_resource type="Resource" id="Resource_tbn18"]
+script = ExtResource("1_rl0a5")
+from = SubResource("Resource_aa52a")
+to = SubResource("Resource_xqlo7")
+
+[sub_resource type="Resource" id="Resource_tgh3y"]
+script = ExtResource("5_c2eps")
+id = "ruyO7US5rO"
+graph_editor_position = Vector2(2780, 440)
+graph_editor_size = Vector2(141.00073, 78.00006)
+
+[sub_resource type="Resource" id="Resource_rijpe"]
+script = ExtResource("1_rl0a5")
+from = SubResource("Resource_xqlo7")
+to = SubResource("Resource_tgh3y")
+
+[sub_resource type="Resource" id="Resource_pv0j0"]
+script = ExtResource("2_rtl85")
+type = "CONDITION_PLAYER_STATE"
+key = "CheckMetNPC_TutorialNPC"
+id = "b3atp0LNUV"
+graph_editor_position = Vector2(1300, 600)
+graph_editor_size = Vector2(376.99927, 313.0004)
+metadata/value = true
+
+[sub_resource type="Resource" id="Resource_5vbwc"]
+script = ExtResource("1_rl0a5")
+from = SubResource("Resource_pv0j0")
+to = SubResource("Resource_xqlo7")
+edge_type = 1
+
+[resource]
+script = ExtResource("3_8de0s")
+nodes = Array[ExtResource("2_cpme7")]([SubResource("Resource_d27ys"), SubResource("Resource_tgh3y"), SubResource("Resource_xqlo7"), SubResource("Resource_srtr7"), SubResource("Resource_aa52a"), SubResource("Resource_pv0j0")])
+edges = Array[ExtResource("1_rl0a5")]([SubResource("Resource_0esrx"), SubResource("Resource_45ttq"), SubResource("Resource_tbn18"), SubResource("Resource_rijpe"), SubResource("Resource_5vbwc")])
+metadata/QUEST_ID = &"TUTORIAL"

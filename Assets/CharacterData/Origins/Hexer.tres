@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://byeecnib38lbh"]
+
+[ext_resource type="Script" uid="uid://pm7vdrc7kems" path="res://Source/Game/Infrastructure/Character/GodotResource/OriginResource.cs" id="1_4uk60"]
+[ext_resource type="Texture2D" uid="uid://ixwkqpmrekm8" path="res://Assets/Textures/ui/Portraits/Origins/Hexer.png" id="1_dg1j5"]
+
+[resource]
+script = ExtResource("1_4uk60")
+Name = &"HEXER_NAME"
+Description = &"HEXER_DESCRIPTION"
+Mugshot = ExtResource("1_dg1j5")

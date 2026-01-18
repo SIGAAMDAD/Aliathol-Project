@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://uttbo212vdob"]
+
+[ext_resource type="Texture2D" uid="uid://di50kkstm51oj" path="res://Assets/Textures/ui/Portraits/Origins/RoyalGuard.png" id="1_gwaxy"]
+[ext_resource type="Script" uid="uid://pm7vdrc7kems" path="res://Source/Game/Infrastructure/Character/GodotResource/OriginResource.cs" id="2_xoocq"]
+
+[resource]
+script = ExtResource("2_xoocq")
+Name = &"ROYAL_GUARD_NAME"
+Description = &"ROYAL_GUARD_DESCRIPTION"
+Mugshot = ExtResource("1_gwaxy")

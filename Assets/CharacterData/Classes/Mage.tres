@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://b7yp4grthk1v0"]
+
+[ext_resource type="Script" uid="uid://dui03l42athfg" path="res://Source/Game/Infrastructure/Character/GodotResource/ClassResource.cs" id="1_0xr1l"]
+[ext_resource type="Texture2D" uid="uid://5vsad8ejf6kx" path="res://Assets/Textures/ui/Portraits/Classes/Mage.png" id="1_f3lqa"]
+
+[resource]
+script = ExtResource("1_0xr1l")
+Name = &"MAGE_NAME"
+Description = &"MAGE_DESCRIPTION"
+Mugshot = ExtResource("1_f3lqa")

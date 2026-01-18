@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://bmmd5oieocjp8"]
+
+[ext_resource type="Texture2D" uid="uid://cy8wvf0yf0jj4" path="res://Assets/Textures/ui/Portraits/Races/Dwarf.png" id="1_6goqe"]
+[ext_resource type="Script" uid="uid://chqm07a6uwwo7" path="res://Source/Game/Infrastructure/Character/GodotResource/RaceResource.cs" id="1_odqyn"]
+
+[resource]
+script = ExtResource("1_odqyn")
+Name = &"DWARF_NAME"
+Description = &"DWARF_DESCRIPTION"
+Mugshot = ExtResource("1_6goqe")

@@ -1,0 +1,13 @@
+[gd_resource type="Environment" format=3 uid="uid://bkpxs50m5cylk"]
+
+[sub_resource type="Gradient" id="Gradient_tyteb"]
+offsets = PackedFloat32Array(0, 0.9045802)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_25jyc"]
+gradient = SubResource("Gradient_tyteb")
+
+[resource]
+background_mode = 3
+glow_enabled = true
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_25jyc")

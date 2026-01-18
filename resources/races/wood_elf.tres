@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://0xqi0e5x6wxu"]
+
+[ext_resource type="Script" uid="uid://bsee5n82r7sag" path="res://scripts/Application/Gameplay/Character/Race.cs" id="1_ueohr"]
+
+[resource]
+script = ExtResource("1_ueohr")
+Name = "Wood Elf"
+BaseKit = null

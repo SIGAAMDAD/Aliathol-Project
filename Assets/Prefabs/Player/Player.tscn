@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cirvkfu4rutp3"]
+
+[ext_resource type="Script" uid="uid://bc615260xr24x" path="res://Assets/Prefabs/Player/Player.cs" id="1_07406"]
+[ext_resource type="SpriteFrames" uid="uid://do48e0ur3lep4" path="res://Assets/Animations/ElfFrames.tres" id="1_jic80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07406"]
+size = Vector2(30, 48)
+
+[node name="Player" type="Node2D" unique_id=664959359]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=178613071]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=27166076]
+sprite_frames = ExtResource("1_jic80")
+animation = &"idle_down"
+autoplay = "idle_down"
+frame_progress = 0.76625925
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1843402594]
+script = ExtResource("1_07406")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2011219682]
+position = Vector2(-1, -7)
+shape = SubResource("RectangleShape2D_07406")

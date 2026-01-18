@@ -1,0 +1,117 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Aliathol-Project"
+run/main_scene="uid://dy3we64uds61v"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+run/max_fps=60
+config/icon="uid://bb1mb8n3ylotg"
+
+[audio]
+
+driver/driver="Dummy"
+
+[autoload]
+
+NomadBootstrapper="*res://Source/Game/Infrastructure/NomadBootstrapper.cs"
+GameStateManager="*uid://dn86r0s64nvqr"
+Questify="*uid://b07jy1yytqpum"
+GlobalWorldEnvironment="*uid://dnich4hvfpcnv"
+GUIDE="*uid://p2jwrgjcbexr"
+DialogueManager="*uid://c3rodes2l3gxb"
+LoadingScreen="*uid://b2gnqlt8pqd2u"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="Aliathol-Project"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/guide/plugin.cfg", "res://addons/quest_resource_translation_parser/plugin.cfg", "res://addons/questify/plugin.cfg", "res://addons/tattomoosa.spinner/plugin.cfg")
+
+[global_group]
+
+SpawnPositions=""
+
+[input]
+
+pause={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations.en.translation")
+
+[memory]
+
+limits/message_queue/max_size_mb=16
+
+[navigation]
+
+pathfinding/max_threads=32
+
+[physics]
+
+2d/run_on_separate_thread=true
+common/physics_ticks_per_second=45
+2d/physics_engine="Rapier2D"
+common/physics_interpolation=true
+common/enable_object_picking=false
+rapier/parallel/num_threads=32
+
+[questify]
+
+general/update_polling=true
+general/update_interval=1.25
+general/add_quests_to_pot_generation=false
+
+[rendering]
+
+rendering_device/staging_buffer/block_size_kb=16
+rendering_device/staging_buffer/max_size_mb=2
+rendering_device/staging_buffer/texture_upload_region_size_px=32
+rendering_device/staging_buffer/texture_download_region_size_px=32
+rendering_device/vulkan/max_descriptors_per_pool=48
+textures/canvas_textures/default_texture_filter=3
+gl_compatibility/driver="opengl4.6"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
+shading/overrides/force_vertex_shading=true
+shading/overrides/force_lambert_over_burley=true
+driver/depth_prepass/enable=false
+viewport/hdr_2d=true
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+scaling_3d/fsr_sharpness=0.2
+limits/global_shader_variables/buffer_size=512
+
+[shader_globals]
+
+brightness_amount={
+"type": "float",
+"value": 2.2
+}

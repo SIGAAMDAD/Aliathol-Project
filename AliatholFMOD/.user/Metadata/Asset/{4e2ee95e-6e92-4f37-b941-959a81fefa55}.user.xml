@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MasterAssetFolder" id="{4e2ee95e-6e92-4f37-b941-959a81fefa55}">
+		<property name="assetDirectory">
+			<value>../Assets/Audio</value>
+		</property>
+	</object>
+</objects>

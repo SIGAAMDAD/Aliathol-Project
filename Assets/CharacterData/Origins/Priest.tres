@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://ciuw02bvihbmw"]
+
+[ext_resource type="Texture2D" uid="uid://dqw3pal03ndkn" path="res://Assets/Textures/ui/Portraits/Origins/Priest.png" id="1_syoj3"]
+[ext_resource type="Script" uid="uid://pm7vdrc7kems" path="res://Source/Game/Infrastructure/Character/GodotResource/OriginResource.cs" id="1_x8mk8"]
+
+[resource]
+script = ExtResource("1_x8mk8")
+Name = &"PRIEST_NAME"
+Description = &"PRIEST_DESCRIPTION"
+Mugshot = ExtResource("1_syoj3")

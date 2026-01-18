@@ -1,0 +1,38 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1">
+  <PropertyGroup>
+    <!-- Build Configuration -->
+    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net10.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <EnforceCodeStyleInBuilds>true</EnforceCodeStyleInBuilds>
+    <EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+    <BuildInParallel>true</BuildInParallel>
+
+    <!-- Performance -->
+    <PubishAOT>true</PubishAOT>
+    <TieredCompilation>true</TieredCompilation>
+    <Deterministic>true</Deterministic>
+    <UseSharedCompilation>true</UseSharedCompilation>
+    <Optimize>true</Optimize>
+    <SkipLocalsInit>true</SkipLocalsInit>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Ini" Version="10.0.1" />
+    <PackageReference Include="System.IO.Hashing" Version="10.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Source\NomadBackend\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Source\NomadBackend\Core\NomadCore.csproj" />
+    <ProjectReference Include="Source\NomadBackend\Systems\EntitySystem\EntitySystem\EventSystem.csproj" />
+    <ProjectReference Include="Source\NomadBackend\Systems\EventSystem\EventSystem\EventSystem.csproj" />
+    <ProjectReference Include="Source\NomadBackend\Systems\Audio\Audio.csproj" />
+    <ProjectReference Include="Source\NomadBackend\Systems\SaveSystem\SaveSystem.csproj" />
+    <ProjectReference Include="Source\NomadBackend\Systems\ResourceCache\ResourceCache.csproj" />
+    <ProjectReference Include="Source\NomadBackend\Systems\ConsoleSystem\ConsoleSystem.csproj" />
+  </ItemGroup>
+</Project>

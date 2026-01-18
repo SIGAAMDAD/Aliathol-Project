@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cqrfhexbsn2fq"]
+
+[ext_resource type="Script" uid="uid://4r6wf6k7lrvp" path="res://Source/Game/Presentation/UserInterface/HeadsUpDisplay/HeadsUpDisplay.cs" id="1_f501r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f501r"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4tud"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[node name="HeadsUpDisplay" type="CanvasLayer" unique_id=725041088]
+script = ExtResource("1_f501r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1906516716]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = -1
+anchor_right = 0.469
+anchor_bottom = 0.017
+offset_right = -292.16
+offset_bottom = -0.1600008
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer" unique_id=1857846483]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_f501r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e4tud")
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="QuestObjectivesContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=754214968]
+layout_mode = 2
+
+[node name="LocationLabel" type="Label" parent="." unique_id=1437836762]
+custom_minimum_size = Vector2(320, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.048
+offset_left = 319.0
+offset_bottom = -0.040000916
+grow_horizontal = 0
+size_flags_horizontal = 3
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1613718341]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = -1
+anchor_top = 0.83300006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 80.15997
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MugshotImage" type="TextureRect" parent="MarginContainer" unique_id=1382495635]
+layout_mode = 2

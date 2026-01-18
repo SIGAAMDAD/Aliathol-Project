@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bv0j5fu550ekp"]
+
+[node name="HeadsUpDisplay" type="CanvasLayer"]

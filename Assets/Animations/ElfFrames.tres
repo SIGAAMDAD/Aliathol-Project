@@ -1,0 +1,90 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://do48e0ur3lep4"]
+
+[ext_resource type="Texture2D" uid="uid://bmk5ov14k37kr" path="res://Assets/Textures/SpriteSheets/Player/Elf/sorc_walk.png" id="1_e8b22"]
+[ext_resource type="Texture2D" uid="uid://0pdvlf8omhs0" path="res://Assets/Textures/SpriteSheets/Player/Elf/sorc_sidesheet.png" id="2_3hk25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k6lb"]
+atlas = ExtResource("1_e8b22")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rebbd"]
+atlas = ExtResource("2_3hk25")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aegnt"]
+atlas = ExtResource("1_e8b22")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_logt8"]
+atlas = ExtResource("1_e8b22")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ye01"]
+atlas = ExtResource("1_e8b22")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gylsh"]
+atlas = ExtResource("2_3hk25")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0374m"]
+atlas = ExtResource("2_3hk25")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m7eb"]
+atlas = ExtResource("2_3hk25")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a01yp"]
+atlas = ExtResource("2_3hk25")
+region = Rect2(128, 128, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k6lb")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rebbd")
+}],
+"loop": true,
+"name": &"idle_horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aegnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_logt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ye01")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gylsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0374m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m7eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a01yp")
+}],
+"loop": true,
+"name": &"walk_horizontal",
+"speed": 5.0
+}]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://cbtu54btm1oru"]
+
+[ext_resource type="Texture2D" uid="uid://bk5b1cuetjlmw" path="res://Assets/Textures/ui/Portraits/Classes/Fighter.png" id="1_ab0vv"]
+[ext_resource type="Script" uid="uid://dui03l42athfg" path="res://Source/Game/Infrastructure/Character/GodotResource/ClassResource.cs" id="1_fp6wc"]
+
+[resource]
+script = ExtResource("1_fp6wc")
+Name = &"FIGHTER_NAME"
+Description = &"FIGHTER_DESCRIPTION"
+Mugshot = ExtResource("1_ab0vv")

@@ -1,0 +1,24 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.vs
+*.import
+*.cs.uid
+*.cs.doxy_temp
+.vscode/
+scripts/NomadBackend/bin/
+scripts/NomadBackend/obj/
+scripts/SaveSystem/bin/
+scripts/SaveSystem/obj/
+scripts/CVars/bin/
+scripts/CVars/obj/
+scripts/ConsoleSystem/bin/
+scripts/ConsoleSystem/obj/
+scripts/EventSystem/bin/
+scripts/EventSystem/obj/
+scripts/SteamManager/bin/
+scripts/SteamManager/obj/
+data_Aliathol-Project_windows_x86_64/
+*.exe
+*.cfg
+*.pck

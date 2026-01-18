@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://d25qcjfjedxhw"]
+
+[ext_resource type="Script" uid="uid://b2wr87gpxa7p2" path="res://Assets/Prefabs/MugshotImage/MugshotImage.cs" id="1_eh7ku"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ck4nl"]
+
+[node name="MugshotImage" type="HBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.112
+anchor_bottom = 0.133
+offset_right = -71.68
+offset_bottom = -63.84
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+script = ExtResource("1_eh7ku")
+metadata/_edit_use_anchors_ = true
+
+[node name="Marker" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 0
+mouse_behavior_recursive = 1
+texture = SubResource("PlaceholderTexture2D_ck4nl")
+stretch_mode = 3

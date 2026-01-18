@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dnooe0hecrfu0"]
+
+[ext_resource type="Script" uid="uid://dpxuwbr1uqgbp" path="res://Source/Game/Presentation/Screens/MainMenu/MainMenu.cs" id="1_2o76q"]
+[ext_resource type="Theme" uid="uid://bssws0vv2d2eg" path="res://Assets/Themes/MainTheme.tres" id="1_ucyp2"]
+[ext_resource type="Texture2D" uid="uid://7s2ik281liux" path="res://Assets/Textures/ui/menu_background.dds" id="2_lpod2"]
+[ext_resource type="PackedScene" uid="uid://cj8rgeahnjf4w" path="res://Source/Game/Infrastructure/UI/NomadUI/SelectionNodes/NomadButton/NomadButton.tscn" id="3_lpod2"]
+
+[node name="MainMenu" type="Control" unique_id=2147016120]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_ucyp2")
+script = ExtResource("1_2o76q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=1426928974]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lpod2")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MainContainer" type="VBoxContainer" parent="." unique_id=763554998]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27499992
+anchor_top = 0.2166666
+anchor_right = 0.7249999
+anchor_bottom = 0.78333324
+offset_left = 96.00006
+offset_top = 75.60003
+offset_right = -96.00003
+offset_bottom = -75.60004
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuTitle" type="Label" parent="MainContainer" unique_id=1214532784]
+custom_minimum_size = Vector2(0, 172)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "MAIN MENU"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MainContainer" unique_id=1017464303]
+layout_mode = 2
+
+[node name="NewGameButton" parent="MainContainer/OptionsContainer" unique_id=1770507831 instance=ExtResource("3_lpod2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NEW GAME"
+Duration = 0.25
+
+[node name="LoadGameButton" parent="MainContainer/OptionsContainer" unique_id=1262880811 instance=ExtResource("3_lpod2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LOAD GAME"
+Duration = 0.25
+
+[node name="SettingsButton" parent="MainContainer/OptionsContainer" unique_id=2070356504 instance=ExtResource("3_lpod2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SETTINGS"
+Duration = 0.25
+
+[node name="CreditsButton" parent="MainContainer/OptionsContainer" unique_id=1281962073 instance=ExtResource("3_lpod2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CREDITS"
+Duration = 0.25
+
+[node name="QuitGameButton" parent="MainContainer/OptionsContainer" unique_id=1493222042 instance=ExtResource("3_lpod2")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "QUIT GAME"
+Duration = 0.25

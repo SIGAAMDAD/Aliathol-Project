@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://c5da7wnj3iday"]
+
+[ext_resource type="Theme" uid="uid://bssws0vv2d2eg" path="res://Assets/Themes/MainTheme.tres" id="1_ds7u3"]
+[ext_resource type="Script" uid="uid://b5qu482eomhs" path="res://Source/Game/Presentation/Screens/CharacterCreationMenu/CharacterCreationMenu.cs" id="1_t3w0t"]
+[ext_resource type="Texture2D" uid="uid://7s2ik281liux" path="res://Assets/Textures/ui/menu_background.dds" id="2_ekfbo"]
+[ext_resource type="Texture2D" uid="uid://b1f423rgfrhw5" path="res://Assets/Textures/ui/page.dds" id="3_sdfjv"]
+[ext_resource type="PackedScene" uid="uid://cj8rgeahnjf4w" path="res://Source/Game/Infrastructure/UI/NomadUI/SelectionNodes/NomadButton/NomadButton.tscn" id="4_5ouyj"]
+[ext_resource type="PackedScene" uid="uid://d36xll77kxc8l" path="res://Source/Game/Infrastructure/UI/NomadUI/SelectionNodes/OptionList/OptionList.tscn" id="4_mamaj"]
+[ext_resource type="PackedScene" uid="uid://2sfi55yx3ju8" path="res://Source/Game/Presentation/Screens/CharacterCreationMenu/MugshotList/MugshotList.tscn" id="5_ds7u3"]
+
+[node name="CharacterCreationMenu" type="Control" unique_id=1736341902]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ds7u3")
+script = ExtResource("1_t3w0t")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=110695298]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.041666668
+anchor_right = 1.0
+anchor_bottom = 0.074666664
+offset_bottom = 0.15999985
+grow_horizontal = 2
+text = "CHARACTER CREATION"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=2091666083]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ekfbo")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background2" type="TextureRect" parent="." unique_id=1694357069]
+unique_name_in_owner = true
+modulate = Color(0.91228896, 0.9122889, 0.91228884, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_sdfjv")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackToMainMenuButton" parent="." unique_id=1792668022 instance=ExtResource("4_5ouyj")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.96700007
+anchor_right = 0.1
+anchor_bottom = 1.0
+offset_top = 7.839966
+offset_right = -56.0
+grow_vertical = 0
+text = "BACK"
+AnimateScale = false
+
+[node name="FinishedButton" parent="." unique_id=845175895 instance=ExtResource("4_5ouyj")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.887
+anchor_top = 0.95000005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.32000732
+offset_top = -3.0517578e-05
+grow_horizontal = 0
+grow_vertical = 0
+text = "NEXT"
+AnimateScale = false
+
+[node name="OptionBox" type="MarginContainer" parent="." unique_id=677608716]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059000004
+anchor_top = 0.19100001
+anchor_right = 0.94100004
+anchor_bottom = 0.809
+offset_left = 0.23999786
+offset_top = -0.18000793
+offset_right = -0.24005127
+offset_bottom = 0.17999268
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RaceList" parent="OptionBox" unique_id=2133423190 instance=ExtResource("5_ds7u3")]
+unique_name_in_owner = true
+layout_mode = 2
+ConfigVarName = "CharacterRace"
+
+[node name="ClassList" parent="OptionBox" unique_id=941246467 instance=ExtResource("5_ds7u3")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+ConfigVarName = "CharacterClass"
+
+[node name="OriginList" parent="OptionBox" unique_id=681028198 instance=ExtResource("5_ds7u3")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+ConfigVarName = "CharacterOrigin"
+
+[node name="AestheticOptions" type="VBoxContainer" parent="OptionBox" unique_id=990207001]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="AgeList" parent="OptionBox/AestheticOptions" unique_id=120264636 instance=ExtResource("4_mamaj")]
+unique_name_in_owner = true
+layout_mode = 2
+ConfigVarName = "CharacterAge"
+Title = &"AGE"
+Description = &""
+
+[node name="GenderList" parent="OptionBox/AestheticOptions" unique_id=1614255489 instance=ExtResource("4_mamaj")]
+unique_name_in_owner = true
+layout_mode = 2
+ConfigVarName = "CharacterGender"
+Title = &"GENDER"
+Description = &""
+
+[node name="SexualityList" parent="OptionBox/AestheticOptions" unique_id=1322170370 instance=ExtResource("4_mamaj")]
+unique_name_in_owner = true
+layout_mode = 2
+ConfigVarName = "CharacterSexuality"
+Title = &"SEXUALITY"
+Description = &""

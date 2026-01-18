@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://ci7vhsgx4w1m5"]
+
+[ext_resource type="Script" uid="uid://pm7vdrc7kems" path="res://Source/Game/Infrastructure/Character/GodotResource/OriginResource.cs" id="1_d33ai"]
+[ext_resource type="Texture2D" uid="uid://tkkwp6lmwsgs" path="res://Assets/Textures/ui/Portraits/Origins/Mercenary.png" id="1_qpa28"]
+
+[resource]
+script = ExtResource("1_d33ai")
+Name = &"MERCENARY_NAME"
+Description = &"MERCENARY_DESCRIPTION"
+Mugshot = ExtResource("1_qpa28")

@@ -1,0 +1,5 @@
+[gd_resource type="TileSet" format=3 uid="uid://dfgbkmpamjfyo"]
+
+[resource]
+custom_data_layer_0/name = "Occlusion"
+custom_data_layer_0/type = 0

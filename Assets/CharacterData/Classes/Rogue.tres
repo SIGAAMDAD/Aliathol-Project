@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://cr1q1rqssdsc1"]
+
+[ext_resource type="Script" uid="uid://dui03l42athfg" path="res://Source/Game/Infrastructure/Character/GodotResource/ClassResource.cs" id="1_frw7w"]
+[ext_resource type="Texture2D" uid="uid://das3deourhis5" path="res://Assets/Textures/ui/Portraits/Classes/Rogue.png" id="1_ir2xc"]
+
+[resource]
+script = ExtResource("1_frw7w")
+Name = &"ROGUE_NAME"
+Description = &"ROGUE_DESCRIPTION"
+Mugshot = ExtResource("1_ir2xc")

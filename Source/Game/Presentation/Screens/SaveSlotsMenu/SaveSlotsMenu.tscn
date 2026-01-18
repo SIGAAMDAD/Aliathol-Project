@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dd5fsemw2c5mb"]
+
+[ext_resource type="Script" uid="uid://ds27rejmuvfxs" path="res://Source/Game/Presentation/Screens/SaveSlotsMenu/SaveSlotsMenu.cs" id="1_0dkak"]
+[ext_resource type="Theme" uid="uid://bssws0vv2d2eg" path="res://Assets/Themes/MainTheme.tres" id="1_07gn0"]
+[ext_resource type="Texture2D" uid="uid://7s2ik281liux" path="res://Assets/Textures/ui/menu_background.dds" id="2_l3642"]
+[ext_resource type="StyleBox" uid="uid://cmt21unamoy71" path="res://Assets/Themes/ScrollBar.tres" id="4_e1rl3"]
+[ext_resource type="PackedScene" uid="uid://cj8rgeahnjf4w" path="res://Source/Game/Infrastructure/UI/NomadUI/SelectionNodes/NomadButton/NomadButton.tscn" id="5_e1rl3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqw27"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07gn0"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1rl3"]
+bg_color = Color(1, 1, 0, 1)
+
+[node name="SaveSlotsMenu" type="Control" unique_id=1771975686]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_07gn0")
+script = ExtResource("1_0dkak")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=2062021748]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l3642")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1072483377]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=521459583]
+layout_mode = 2
+theme_override_constants/separation = 24
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2109528662]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SAVE SLOTS"
+
+[node name="VScrollBar" type="VScrollBar" parent="MarginContainer/VBoxContainer" unique_id=822071688]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/scroll = ExtResource("4_e1rl3")
+theme_override_styles/scroll_focus = SubResource("StyleBoxFlat_wqw27")
+theme_override_styles/grabber = SubResource("StyleBoxFlat_07gn0")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxFlat_e1rl3")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxFlat_e1rl3")
+
+[node name="SlotList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VScrollBar" unique_id=923818503]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1013100447]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BackButton" parent="MarginContainer/VBoxContainer/ButtonContainer" unique_id=1938011170 instance=ExtResource("5_e1rl3")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BACK"
+
+[node name="DeleteButton" parent="MarginContainer/VBoxContainer/ButtonContainer" unique_id=589086602 instance=ExtResource("5_e1rl3")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DELETE"
+
+[node name="LoadButton" parent="MarginContainer/VBoxContainer/ButtonContainer" unique_id=1480989327 instance=ExtResource("5_e1rl3")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LOAD"

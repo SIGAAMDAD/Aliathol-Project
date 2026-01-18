@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://dnh2iwe5ha2io"]
+
+[ext_resource type="Script" uid="uid://chqm07a6uwwo7" path="res://Source/Game/Infrastructure/Character/GodotResource/RaceResource.cs" id="1_7n4yb"]
+[ext_resource type="Texture2D" uid="uid://bvnsoxt3ohsrs" path="res://Assets/Textures/ui/Portraits/Races/HighElf.png" id="1_tnq7l"]
+
+[resource]
+script = ExtResource("1_7n4yb")
+Name = &"HIGH_ELF_NAME"
+Description = &"HIGH_ELF_DESCRIPTION"
+Mugshot = ExtResource("1_tnq7l")

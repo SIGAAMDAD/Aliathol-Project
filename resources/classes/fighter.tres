@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ck6e5egvp4yq2"]
+
+[ext_resource type="Script" uid="uid://b7yan5twwm4bx" path="res://scripts/Application/Gameplay/Character/Class.cs" id="1_k2608"]
+
+[resource]
+script = ExtResource("1_k2608")
+Name = "Fighter"
+BaseKit = null

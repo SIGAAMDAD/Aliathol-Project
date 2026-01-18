@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://b2gnqlt8pqd2u"]
+
+[ext_resource type="Script" uid="uid://cr3vjdsff2pap" path="res://Source/Game/Presentation/Screens/LoadingScreen/LoadingScreen.cs" id="1_rv5q0"]
+[ext_resource type="Shader" uid="uid://b2hjlccom1xs3" path="res://Source/Game/Presentation/Screens/LoadingScreen/LoadingScreenVignette.gdshader" id="2_i25kx"]
+[ext_resource type="Texture2D" uid="uid://7s2ik281liux" path="res://Assets/Textures/ui/menu_background.dds" id="2_mvx2s"]
+[ext_resource type="Script" uid="uid://cyufdliqatmkm" path="res://addons/tattomoosa.spinner/spinner.gd" id="4_oey1p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oey1p"]
+shader = ExtResource("2_i25kx")
+shader_parameter/radius = 0.650000030875
+shader_parameter/softness = 0.6530000310175
+shader_parameter/intensity = 3.0
+shader_parameter/contrast = 1.1650000315875
+shader_parameter/vignette_color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=963186252]
+process_mode = 4
+visible = false
+script = ExtResource("1_rv5q0")
+
+[node name="Background" type="TextureRect" parent="." unique_id=350131122]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mvx2s")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=791951951]
+material = SubResource("ShaderMaterial_oey1p")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=375596481]
+anchors_preset = -1
+anchor_top = 0.483
+anchor_right = 1.0
+anchor_bottom = 0.517
+offset_top = 0.1599884
+offset_bottom = -0.16000366
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOADING..."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Spinner" type="Range" parent="." unique_id=780689811]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = true
+custom_minimum_size = Vector2(16, 16)
+layout_direction = 0
+layout_mode = 3
+anchors_preset = -1
+anchor_left = 0.93700004
+anchor_top = 0.91700006
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.3199463
+offset_top = -0.16003418
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 0.0
+scale = Vector2(1, 1)
+pivot_offset = Vector2(0, 0)
+pivot_offset_ratio = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+tooltip_auto_translate_mode = 0
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 0
+focus_behavior_recursive = 0
+mouse_filter = 0
+mouse_behavior_recursive = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+accessibility_name = ""
+accessibility_description = ""
+accessibility_live = 0
+accessibility_controls_nodes = Array[NodePath]([])
+accessibility_described_by_nodes = Array[NodePath]([])
+accessibility_labeled_by_nodes = Array[NodePath]([])
+accessibility_flow_to_nodes = Array[NodePath]([])
+theme = null
+theme_type_variation = &""
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 0.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+script = ExtResource("4_oey1p")
+metadata/_custom_type_script = "uid://cyufdliqatmkm"
+metadata/_edit_use_anchors_ = true

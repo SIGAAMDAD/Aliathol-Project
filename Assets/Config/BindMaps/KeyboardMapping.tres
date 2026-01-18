@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" format=3 uid="uid://giokn3bhplaf"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_gdq6r"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="2_4m80e"]
+[ext_resource type="Resource" uid="uid://x67mwdkbcyul" path="res://Assets/Config/BindMaps/KeyboardAndMouse/Move.tres" id="2_fje4h"]
+[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="2_q0bkl"]
+[ext_resource type="Script" uid="uid://bl8rjl4oaldje" path="res://addons/guide/modifiers/guide_modifier.gd" id="3_p81y0"]
+[ext_resource type="Script" uid="uid://cw71o87tvdx3q" path="res://addons/guide/inputs/guide_input_key.gd" id="4_0okia"]
+[ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="4_oo87v"]
+[ext_resource type="Script" uid="uid://bm5gjgadon6hb" path="res://addons/guide/modifiers/guide_modifier_input_swizzle.gd" id="6_eumvm"]
+[ext_resource type="Script" uid="uid://ckggy40lm0vjc" path="res://addons/guide/modifiers/guide_modifier_negate.gd" id="7_fje4h"]
+[ext_resource type="Resource" uid="uid://kp2htnljbhcx" path="res://Assets/Config/BindMaps/KeyboardAndMouse/Interact.tres" id="9_iqxrd"]
+
+[sub_resource type="Resource" id="Resource_iqxrd"]
+script = ExtResource("4_0okia")
+key = 87
+
+[sub_resource type="Resource" id="Resource_lac30"]
+script = ExtResource("6_eumvm")
+
+[sub_resource type="Resource" id="Resource_f0vfk"]
+script = ExtResource("7_fje4h")
+
+[sub_resource type="Resource" id="Resource_0okia"]
+script = ExtResource("2_q0bkl")
+input = SubResource("Resource_iqxrd")
+modifiers = Array[ExtResource("3_p81y0")]([SubResource("Resource_lac30"), SubResource("Resource_f0vfk")])
+
+[sub_resource type="Resource" id="Resource_2d3m2"]
+script = ExtResource("4_0okia")
+key = 83
+
+[sub_resource type="Resource" id="Resource_nweah"]
+script = ExtResource("6_eumvm")
+
+[sub_resource type="Resource" id="Resource_eo1rr"]
+script = ExtResource("2_q0bkl")
+input = SubResource("Resource_2d3m2")
+modifiers = Array[ExtResource("3_p81y0")]([SubResource("Resource_nweah")])
+
+[sub_resource type="Resource" id="Resource_nq52a"]
+script = ExtResource("4_0okia")
+key = 65
+
+[sub_resource type="Resource" id="Resource_yejdc"]
+script = ExtResource("7_fje4h")
+
+[sub_resource type="Resource" id="Resource_eumvm"]
+script = ExtResource("2_q0bkl")
+input = SubResource("Resource_nq52a")
+modifiers = Array[ExtResource("3_p81y0")]([SubResource("Resource_yejdc")])
+
+[sub_resource type="Resource" id="Resource_t8fyq"]
+script = ExtResource("4_0okia")
+key = 68
+
+[sub_resource type="Resource" id="Resource_fje4h"]
+script = ExtResource("2_q0bkl")
+input = SubResource("Resource_t8fyq")
+
+[sub_resource type="Resource" id="Resource_p81y0"]
+script = ExtResource("1_gdq6r")
+action = ExtResource("2_fje4h")
+input_mappings = Array[ExtResource("2_q0bkl")]([SubResource("Resource_0okia"), SubResource("Resource_eo1rr"), SubResource("Resource_eumvm"), SubResource("Resource_fje4h")])
+metadata/_guide_input_mappings_collapsed = false
+
+[sub_resource type="Resource" id="Resource_yhw1e"]
+script = ExtResource("4_0okia")
+key = 69
+
+[sub_resource type="Resource" id="Resource_yprhb"]
+script = ExtResource("2_q0bkl")
+input = SubResource("Resource_yhw1e")
+
+[sub_resource type="Resource" id="Resource_f3x22"]
+script = ExtResource("1_gdq6r")
+action = ExtResource("9_iqxrd")
+input_mappings = Array[ExtResource("2_q0bkl")]([SubResource("Resource_yprhb")])
+
+[resource]
+script = ExtResource("2_4m80e")
+mappings = Array[ExtResource("1_gdq6r")]([SubResource("Resource_p81y0"), SubResource("Resource_f3x22")])
+metadata/_custom_type_script = "uid://dsa1dnifd6w32"
