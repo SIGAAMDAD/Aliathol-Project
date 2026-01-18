@@ -23,4 +23,5 @@ data_Aliathol-Project_windows_x86_64/
 *.cfg
 *.pck
 guide_examples
-addons/guide/CSharp
+addons/guide/CSharp\
+*.x86_64
