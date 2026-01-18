@@ -47,7 +47,7 @@ namespace Game.Presentation.Screens.CharacterCreationMenu {
 		private readonly MugshotService _mugshotService;
 
 		private readonly ILoggerService _logger;
-		private readonly MenuStateMachine<State> _stateManager;
+		private readonly MenuStateMachine<CharacterCreationMenuState> _stateManager;
 		private readonly UIEventHelper _helper;
 
 		private MugshotListView _currentView;
@@ -56,7 +56,7 @@ namespace Game.Presentation.Screens.CharacterCreationMenu {
 
 		private readonly DisposableSubscription<MugshotListItemFocusedEventArgs> _mugshotFocusedEvent;
 		private readonly DisposableSubscription<ButtonClickedEventArgs> _buttonClickedEvent;
-		private readonly DisposableSubscription<MenuStateChangedEventArgs<State>> _menuStateChangedEvent;
+		private readonly DisposableSubscription<MenuStateChangedEventArgs<CharacterCreationMenuState>> _menuStateChangedEvent;
 
 		private readonly DisposableSubscription<CharacterRaceSelectedEventArgs> _raceSelectedEvent;
 		private readonly DisposableSubscription<CharacterClassSelectedEventArgs> _classSelectedEvent;

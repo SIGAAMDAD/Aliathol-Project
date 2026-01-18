@@ -26,6 +26,7 @@ using Nomad.CVars;
 using Nomad.Core.Logger;
 using Nomad.Core;
 using Nomad.Core.Events;
+using System.Threading.Tasks;
 
 namespace Game.Infrastructure.Configuration.Godot.Services {
 	/*
@@ -120,25 +121,25 @@ namespace Game.Infrastructure.Configuration.Godot.Services {
 		/// Initializes the display configuration.
 		/// </summary>
 		public void InitConfig() {
+			var monitor = GetCVar<int>( Constants.CVars.Display.MONITOR );
+			monitor.ValueChanged.Subscribe( this, OnMonitorChanged );
+			SetMonitor( monitor.Value );
+
 			var windowMode = GetCVar<WindowMode>( Constants.CVars.Display.WINDOW_MODE );
 			windowMode.ValueChanged.Subscribe( this, OnWindowModeChanged );
 			SetWindowMode( windowMode.Value );
+
+			var aspectRatio = GetCVar<AspectRatio>( Constants.CVars.Display.ASPECT_RATIO );
+			aspectRatio.ValueChanged.Subscribe( this, OnAspectRatioChanged );
+			SetAspectRatio( aspectRatio.Value );
 
 			var windowResolution = GetCVar<WindowResolution>( Constants.CVars.Display.WINDOW_RESOLUTION );
 			windowResolution.ValueChanged.Subscribe( this, OnWindowResolutionChanged );
 			SetWindowResolution( windowResolution.Value );
 
-			var monitor = GetCVar<int>( Constants.CVars.Display.MONITOR );
-			monitor.ValueChanged.Subscribe( this, OnMonitorChanged );
-			SetMonitor( monitor.Value );
-
 			var antiAliasing = GetCVar<AntiAliasing>( Constants.CVars.Display.ANTI_ALIASING );
 			antiAliasing.ValueChanged.Subscribe( this, OnAntiAliasingChanged );
 			SetAntiAliasingMethod( _viewportRid, antiAliasing.Value );
-
-			var aspectRatio = GetCVar<AspectRatio>( Constants.CVars.Display.ASPECT_RATIO );
-			aspectRatio.ValueChanged.Subscribe( this, OnAspectRatioChanged );
-			SetAspectRatio( aspectRatio.Value );
 
 			GetCVar<PerformanceOverlayPreset>( "display.PerformanceOverlay" ).ValueChanged.Subscribe( this, OnPerformanceOverlayChanged );
 

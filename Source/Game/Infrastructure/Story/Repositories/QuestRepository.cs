@@ -10,6 +10,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 
 namespace Game.Infrastructure.Story {
 	/*
@@ -44,12 +45,14 @@ namespace Game.Infrastructure.Story {
 
 		private static readonly StringName @ActivateObjectiveMethodName = "activate_objective";
 
-		public static readonly StringName @QuestIdMetaDataName = "QUEST_ID";
+		public static readonly StringName @QuestIdMetaDataName = "id";
 		public static readonly StringName @ObjectiveIdMetaDataName = "OBJECTIVE_ID";
-		private static readonly StringName @QuestObjectiveConditionsMetaDataName = "QUEST_OBJECTIVE_CONDITIONS";
+		private static readonly StringName @QuestObjectiveConditionsMetaDataName = "conditions";
 
 		private readonly ConcurrentDictionary<Resource, QuestInstance> _questInstanceCache = new();
-		private readonly Dictionary<InternString, Resource> _questCache;
+		private readonly ConcurrentDictionary<Resource, string> _questInstanceToId = new();
+		private readonly ConcurrentDictionary<string, Resource> _questIdToInstance = new();
+		private readonly ImmutableDictionary<string, Resource> _questLookup;
 
 		private QuestInstance? _currentInstance;
 
@@ -94,7 +97,7 @@ namespace Game.Infrastructure.Story {
 			_objectiveCompleted = eventFactory.GetEvent<QuestObjectiveCompletedEventArgs>( EventNames.NAMESPACE, EventNames.QUEST_OBJECTIVE_COMPLETED_EVENT );
 			_objectiveActivate = eventFactory.GetEvent<QuestObjectiveActivateEventArgs>( EventNames.NAMESPACE, EventNames.QUEST_OBJECTIVE_ACTIVATE_EVENT );
 
-			_questCache = LoadQuests( QUEST_ASSET_DIRECTORY );
+			_questLookup = LoadQuests( QUEST_ASSET_DIRECTORY ).ToImmutableDictionary();
 		}
 
 		/*
@@ -119,37 +122,42 @@ namespace Game.Infrastructure.Story {
 		/// </summary>
 		/// <param name="id"></param>
 		/// <param name="resource"></param>
-		private void StartQuest( InternString id, Resource resource ) {
-			Resource quest = Questify.Instantiate( resource );
+		private void StartQuest( string id, Resource resource ) {
+			try {
+				Resource quest = Questify.Instantiate( resource );
 
-			GD.Print( "starting quest..." );
+				GD.Print( "starting quest..." );
 
-			Resource[] nodes = quest.Get( NodesPropertyName ).AsGodotObjectArray<Resource>();
+				Resource[] nodes = quest.Get( NodesPropertyName ).AsGodotObjectArray<Resource>();
 
-			List<Resource> objectives = new List<Resource>();
-			for ( int i = 0; i < nodes.Length; i++ ) {
-				var node = nodes[ i ];
-				if ( node.HasMethod( ActivateObjectiveMethodName ) ) {
-					objectives.Add( node );
+				List<Resource> objectives = new List<Resource>();
+				for ( int i = 0; i < nodes.Length; i++ ) {
+					var node = nodes[ i ];
+					if ( node.HasMethod( ActivateObjectiveMethodName ) ) {
+						objectives.Add( node );
+					}
 				}
+
+				Godot.Collections.Dictionary<StringName, Variant> objectiveConditions = quest.Get( QuestObjectiveConditionsMetaDataName ).AsGodotDictionary<StringName, Variant>();
+				var conditions = new Dictionary<string, Variant>( objectiveConditions.Count );
+				foreach ( var condition in objectiveConditions ) {
+					conditions[ condition.Key ] = condition.Value;
+				}
+
+				_currentInstance = new QuestInstance(
+					new( id ),
+					quest,
+					objectives,
+					conditions
+				);
+				_questInstanceCache[ quest ] = _currentInstance;
+				_questInstanceToId[ quest ] = id;
+				_questIdToInstance[ id ] = quest;
+
+				Questify.StartQuest( quest );
+			} catch ( Exception e ) {
+				GD.PushError( e );
 			}
-
-			Godot.Collections.Dictionary<StringName, Variant> objectiveConditions = quest.GetMeta( QuestObjectiveConditionsMetaDataName ).AsGodotDictionary<StringName, Variant>();
-			var conditions = new Dictionary<string, Variant>( objectiveConditions.Count );
-			foreach ( var condition in objectiveConditions ) {
-				conditions[ condition.Key ] = condition.Value;
-			}
-
-			_currentInstance = new QuestInstance(
-				id,
-				quest,
-				objectives,
-				conditions
-			);
-			_questInstanceCache[ quest ] = _currentInstance;
-			_questCache[ id ] = quest;
-
-			Questify.StartQuest( quest );
 		}
 
 		/*
@@ -161,17 +169,28 @@ namespace Game.Infrastructure.Story {
 		/// 
 		/// </summary>
 		/// <param name="directory"></param>
-		private Dictionary<InternString, Resource> LoadQuests( FilePath directory ) {
-			var quests = new Dictionary<InternString, Resource>();
-			var files = System.IO.Directory.GetFiles( QUEST_ASSET_DIRECTORY.OSPath );
+		private Dictionary<string, Resource> LoadQuests( FilePath directory ) {
+			var quests = new Dictionary<string, Resource>();
 
-			for ( int i = 0; i < files.Length; i++ ) {
-				var fileName = files[ i ];
-				if ( fileName.GetExtension() == QUEST_RESOURCE_EXTENSION ) {
-					ResourceCache.Instance.GetCached( FilePath.FromResourcePath( FilePath.FromNative( fileName ).GodotPath ) ).Get( out var resource );
-					quests[ new( resource.GetMeta( QuestIdMetaDataName ).AsStringName() ) ] = resource;
+			static void FindQuestResources( FilePath folder, Dictionary<string, Resource> quests ) {
+				var files = System.IO.Directory.GetFiles( folder.OSPath );
+				var folders = System.IO.Directory.GetDirectories( folder.OSPath );
+
+				for ( int i = 0; i < files.Length; i++ ) {
+					var fileName = files[ i ];
+					if ( fileName.GetExtension() == QUEST_RESOURCE_EXTENSION ) {
+						ResourceCache.Instance.GetCached( FilePath.FromResourcePath( FilePath.FromNative( fileName ).GodotPath ) ).Get( out var resource );
+						//var id = new InternString(  );
+						var id = resource.Get( QuestIdMetaDataName ).AsStringName();
+						quests[ id ] = resource;
+						GD.Print( $"Adding quest {id} to cache..." );
+					}
+				}
+				for ( int i = 0; i < folders.Length; i++ ) {
+					FindQuestResources( FilePath.FromNative( folders[ i ] ), quests );
 				}
 			}
+			FindQuestResources( directory, quests );
 
 			return quests;
 		}
@@ -186,9 +205,11 @@ namespace Game.Infrastructure.Story {
 		/// </summary>
 		/// <param name="args"></param>
 		private void OnQuestActivate( in QuestActivateEventArgs args ) {
-			GD.Print( $"Triggering quest {(string)args.QuestId}");
-			if ( _questCache.TryGetValue( args.QuestId, out var data ) ) {
+			GD.Print( $"Triggering quest {(string)args.QuestId}" );
+			if ( _questLookup.TryGetValue( (string)args.QuestId, out var data ) ) {
 				StartQuest( args.QuestId, data );
+			} else {
+				GD.PushError( $"Quest {(string)args.QuestId} not found!" );
 			}
 		}
 
@@ -202,7 +223,8 @@ namespace Game.Infrastructure.Story {
 		/// </summary>
 		/// <param name="args"></param>
 		private void OnQuestConditionChanged( in QuestConditionChangedEventArgs args ) {
-			if ( _questInstanceCache.TryGetValue( _questCache[ args.QuestId ], out var data ) ) {
+			GD.Print( $"Changing quest condition {(string)args.ConditionId} in quest {(string)args.QuestId}" );
+			if ( _questInstanceCache.TryGetValue( _questIdToInstance[ args.QuestId ], out var data ) ) {
 				if ( data.Conditions.TryGetValue( args.ConditionId, out var value ) ) {
 					data.Conditions[ args.ConditionId ] = value.VariantType switch {
 						Variant.Type.Bool => Variant.From( args.Value.GetValue<bool>() ),
@@ -247,7 +269,7 @@ namespace Game.Infrastructure.Story {
 			if ( !_questInstanceCache.TryGetValue( quest, out var data ) ) {
 				return;
 			}
-			_objectiveCompleted.Publish( new QuestObjectiveCompletedEventArgs( data.Id, new( objective.GetMeta( ObjectiveIdMetaDataName ).AsStringName() ) ) );
+			_objectiveCompleted.Publish( new QuestObjectiveCompletedEventArgs( data.Id, new( objective.GetMeta( ObjectiveIdMetaDataName ).AsString() ) ) );
 			GD.Print( "Quest objective completed!" );
 		}
 
@@ -265,7 +287,7 @@ namespace Game.Infrastructure.Story {
 			if ( !_questInstanceCache.TryGetValue( quest, out var data ) ) {
 				return;
 			}
-			_objectiveActivate.Publish( new QuestObjectiveActivateEventArgs( data.Id, new( objective.GetMeta( ObjectiveIdMetaDataName ).AsStringName() ) ) );
+			_objectiveActivate.Publish( new QuestObjectiveActivateEventArgs( data.Id, new( objective.GetMeta( ObjectiveIdMetaDataName ).AsString() ) ) );
 			GD.Print( "Quest Objective Added" );
 		}
 

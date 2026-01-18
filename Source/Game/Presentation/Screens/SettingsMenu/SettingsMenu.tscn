@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://v4dl6gfdxko3"]
 
-[ext_resource type="Script" uid="uid://c5c5m713q5dkd" path="res://Source/Game/Presentation/Screens/SettingsMenu/SettingsMenu.cs" id="1_658rn"]
+[ext_resource type="Script" uid="uid://5awa2q3qaxnt" path="res://Source/Game/Presentation/Screens/SettingsMenu/SettingsMenu.cs" id="1_658rn"]
 [ext_resource type="Theme" uid="uid://bssws0vv2d2eg" path="res://Assets/Themes/MainTheme.tres" id="1_m4e4s"]
 [ext_resource type="Texture2D" uid="uid://7s2ik281liux" path="res://Assets/Textures/ui/menu_background.dds" id="2_wcut1"]
 [ext_resource type="PackedScene" uid="uid://cj8rgeahnjf4w" path="res://Source/Game/Infrastructure/UI/NomadUI/SelectionNodes/NomadButton/NomadButton.tscn" id="3_l307y"]

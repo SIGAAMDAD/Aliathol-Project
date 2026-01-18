@@ -2,7 +2,8 @@
 @icon("res://addons/questify/assets/icon.svg")
 class_name QuestResource extends Resource
 
-
+@export var id: StringName
+@export var conditions: Dictionary[StringName, Variant]
 @export var nodes: Array[QuestNode] = []
 @export var edges: Array[QuestEdge] = []
 
@@ -127,6 +128,8 @@ func notify_active_objectives() -> void:
 
 func serialize() -> Dictionary:
 	return {
+		id = id,
+		conditions = conditions,
 		completed = completed,
 		nodes = nodes.map(func(node: QuestNode): return node.serialize())
 	}
@@ -136,6 +139,9 @@ func deserialize(data: Dictionary) -> void:
 	if not is_instance:
 		printerr("Quest must be instantiated to be deserialized. Use instantiate().")
 		return
+	
+	id = data.id
+	conditions = data.conditions
 	completed = data.completed
 	var node_map := {}
 	for node in nodes:

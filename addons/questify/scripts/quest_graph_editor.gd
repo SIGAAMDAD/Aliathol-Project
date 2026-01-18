@@ -35,7 +35,7 @@ func clear() -> void:
 		
 		
 func save(path: String) -> int:
-	var root := _serialize_resource()
+	var root := _serialize_resource(path)
 	if root != null:
 		var error := ResourceSaver.save(root, path)
 		return error
@@ -56,7 +56,7 @@ func get_child_nodes() -> Array:
 	return find_children("", "QuestGraphNode", false, false)
 	
 	
-func _serialize_resource() -> QuestResource:
+func _serialize_resource(path: String) -> QuestResource:
 	var start_nodes := find_children("", "QuestStartNode", false, false)
 	if start_nodes.size() != 1:
 		# TODO: add better error handling
@@ -76,7 +76,13 @@ func _serialize_resource() -> QuestResource:
 		return null
 	
 	var connections := get_connection_list()
-	var resource := QuestResource.new()
+	
+	var resource: QuestResource
+	if FileAccess.file_exists(path):
+		resource = load(path)
+	else:
+		resource = QuestResource.new()
+
 	var edges: Array[QuestEdge] = []
 	resource.nodes.assign(_get_nodes(connections, edges))
 	resource.edges = edges

@@ -41,7 +41,7 @@ namespace Prefabs {
 		/// 
 		/// </summary>
 		protected virtual void Activate() {
-			var questId = new InternString( _questResource.GetMeta( QuestRepository.QuestIdMetaDataName ).AsStringName() );
+			var questId = new InternString( _questResource.Get( QuestRepository.QuestIdMetaDataName ).AsStringName() );
 			if ( _isStart ) {
 				_eventFactory.GetEvent<QuestActivateEventArgs>( EventNames.NAMESPACE, EventNames.QUEST_ACTIVATE_EVENT ).Publish( new QuestActivateEventArgs( questId ) );
 				_activated = true;

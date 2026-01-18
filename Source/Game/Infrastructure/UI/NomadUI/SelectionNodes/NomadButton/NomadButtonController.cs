@@ -124,7 +124,6 @@ namespace Game.Infrastructure.UI.NomadUI.SelectionNodes.NomadButton {
 		/// 
 		/// </summary>
 		private void OnPressed() {
-			GD.Print( "Publishing pressed..." );
 			_helper.ButtonClicked.Publish( new ButtonClickedEventArgs( _view.ButtonId ) );
 		}
 	};
